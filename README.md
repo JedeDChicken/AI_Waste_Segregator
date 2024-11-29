@@ -4,6 +4,11 @@
 
 *This is actually a component of a bigger project that's still under development (requires funding)
 
+*There are 3 parts in the codebase (can comment out the docstring for unnecessary parts)...- 
+1. Raw model test
+2. Model araining
+3. Model application
+
 *Documentations and test results at Doc folder
 
 *Datasets- 
