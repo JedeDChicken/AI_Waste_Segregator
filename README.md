@@ -1,5 +1,7 @@
 # Waste Segregator into Plastic, Glass, Metal
 
+*This is a classifier-type AI model that categorizes an image into either plastic, glass, or metal waste. It is derived from the MobileNet V3 model. This is a component of a bigger project that's still under development, and it will be run in a Raspberry Pi 4 4GB with a Raspberry Pi camera module.
+
 *Transfer learning with mobilenet_v3- https://www.kaggle.com/models/google/mobilenet-v3/TensorFlow2/large-075-224-feature-vector/1
 
 *This is actually a component of a bigger project that's still under development (requires funding)
