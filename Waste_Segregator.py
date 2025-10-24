@@ -95,11 +95,15 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(X)):
     
     # Model Architecture Definition
     model = tf_keras.Sequential([
-        pretrained_model_without_top_layer,
-        layers.Dropout(0.5),  # 50% Dropout (Regularization)- to reduce overfitting
-        layers.Dense(128, activation='relu'),  # Additional Dense Layer (Increase Capacity, try Leaky Relu?)- adds capacity but can be removed as might cause overfitting
-        layers.BatchNormalization(),  # Batch Normalization- to speed up training and improve stability and convergence
-        layers.Dense(num_of_recyclables, activation='softmax', kernel_regularizer=tf_keras.regularizers.l2(0.01))  # L2 Regularization- to penalize large weights
+        pretrained_model_without_top_layer, 
+        # 50% Dropout (Regularization, reduces overfitting)- switch modes? (only active in training [automatically disabled in .evaluate() / .predict()]
+        layers.Dropout(0.5), 
+        layers.Dense(128, activation='relu'),  # Additional Dense Layer (increases capacity, try Leaky Relu?)- can be removed as might cause overfitting
+        layers.BatchNormalization(),  # Batch Normalization- improves training speed, stability, and convergence
+        # L2 (Regularization, reduces overfitting)- to penalize large weights (like weight decay?)
+        layers.Dense(num_of_recyclables, activation='softmax', kernel_regularizer=tf_keras.regularizers.l2(0.01))
+        # Check layer placements & adjust values in dense/dropout/l2...
+        # Overfitting clues- Accuracy (high in training but low in validation), Loss (low in training but high in validation), poor perf on unseen data, 
     ])
     # print(model.summary())
 
@@ -230,4 +234,5 @@ while True:
 # predicted_label = img_labels[predicted_label_idx]
 
 # print(predicted_label)
+
 
