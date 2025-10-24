@@ -106,7 +106,8 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(X)):
     # Model Compilation
     model.compile(
         optimizer='adam',  # adam- adaptive lr, try SGD/etc
-        loss=tf_keras.losses.SparseCategoricalCrossentropy(from_logits=True),  # from_logits=False (since last layer is softmax)
+        # SparseCCE- for multi-class (integer labels, vs CCE- for one-hot labels), from_logits=False (since last layer is softmax)
+        loss=tf_keras.losses.SparseCategoricalCrossentropy(from_logits=True), 
         metrics=['accuracy']  # Also compute for accuracy (score[1], so we'll get both loss and accuracy)
     )
 
@@ -229,3 +230,4 @@ while True:
 # predicted_label = img_labels[predicted_label_idx]
 
 # print(predicted_label)
+
