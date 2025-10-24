@@ -19,7 +19,7 @@ classifier_link = 'https://www.kaggle.com/models/google/mobilenet-v3/TensorFlow2
 feature_vector_link = 'https://www.kaggle.com/models/google/mobilenet-v3/TensorFlow2/large-075-224-feature-vector/1'
 
 current_dir = os.getcwd()  # Cwd- current working directory
-dataset_path = os.path.join(current_dir, 'dataset3')
+dataset_path = os.path.join(current_dir, 'dataset3')  # Glass- 1936, Metal- 1373, Plastic- 1818
 data_dir = pathlib.Path(dataset_path)
 
 X, y = [], []
@@ -227,4 +227,5 @@ while True:
 # predict = model.predict(test_img)
 # predicted_label_idx = np.argmax(predict)
 # predicted_label = img_labels[predicted_label_idx]
+
 # print(predicted_label)
